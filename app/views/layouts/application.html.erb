@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bloobelly</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div data-role = "header" data-theme = "a">  
+<h2>Bloo belly!</h2>
+</div>
+<div data-role = "page" data-theme = "a">
+<%= yield %>
+<div data-role = "footer" data-theme = "a" data-position="fixed">
+<div data-role="navbar"><ul>
+			<li><%= link_to image_tag("geotag.png", :alt =>"Map"), '#' %></li>
+			<li><%= link_to image_tag("back_on.png", :alt =>"Back"), :back%></li>
+			<li><%= link_to image_tag("home.png", :alt =>"Home"), root_path %></li>
+			<li><%= link_to image_tag("info.png", :alt =>"About Us"), '#' %></li>
+</ul></div>
+        </div>
+</div>
+</body>
+</html>
