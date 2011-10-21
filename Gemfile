@@ -16,6 +16,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'sqlite3'
+end
+
+gem 'pg'
+
 gem 'jquery-rails'
 gem "jquery_mobile-rails"
 gem 'therubyracer', :require => "v8"
