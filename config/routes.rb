@@ -1,4 +1,15 @@
 Bloobelly::Application.routes.draw do
+  match "oauth/callback" => "oauths#callback"
+  
+  match "about" => "page#about"
+  match "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
+  resources :users
+  resources :sessions
+
   root :to => 'page#home'
   # The priority is based upon order of creation:
   # first created -> highest priority.

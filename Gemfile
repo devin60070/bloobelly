@@ -18,7 +18,7 @@ group :development do
 end
 
 gem 'pg'
-
+gem 'sorcery', '0.6.1'
 gem 'jquery-rails'
 gem "jquery_mobile-rails"
 gem 'therubyracer', :require => "v8"

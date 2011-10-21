@@ -9,7 +9,15 @@
 <body>
 <div data-role = "page" data-theme = "b">
 <div data-role = "header" data-theme = "b">  
-<h2>Bloo belly!</h2>
+<h2>
+<% if current_user %>
+  Logged in as <%= current_user.email %>.
+  <%= link_to "Log out", logout_path %>
+<% else %>
+  <%= link_to "Sign up", signup_path %> or
+  <%= link_to "log in", login_path %>.
+<% end %>
+</h2>
 </div>
 <%= yield %>
 <div data-role = "footer" data-theme = "b" data-position="fixed">

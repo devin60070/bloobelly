@@ -1,2 +1,10 @@
+<% flash.each do |key, msg| %>
+    <%= content_tag :div, msg, :class => [key, " message"], :id => "notice_ #{key}" %>
+    <%= content_tag :script, :type => "text/javascript" do -%>
+        setTimeout("new Effect.Fade('notice_<%= key %>');", 15000);
+    <% end %>
+<% end %>
 <h1>Bloo Belly</h1>
 <p>Currently Under Construction</p>
+<%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook),:rel=>"external" %>
+
