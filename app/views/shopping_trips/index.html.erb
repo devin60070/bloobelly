@@ -1,0 +1,23 @@
+<h1>Listing shopping_trips</h1>
+
+<table>
+  <tr>
+    <th>Integer</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @shopping_trips.each do |shopping_trip| %>
+  <tr>
+    <td><%= shopping_trip.integer %></td>
+    <td><%= link_to 'Show', shopping_trip %></td>
+    <td><%= link_to 'Edit', edit_shopping_trip_path(shopping_trip) %></td>
+    <td><%= link_to 'Destroy', shopping_trip, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Shopping trip', new_shopping_trip_path %>

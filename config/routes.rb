@@ -1,4 +1,8 @@
 Bloobelly::Application.routes.draw do
+  resources :shopping_trips
+
+  resources :food_items
+
   match "oauth/callback" => "oauths#callback"
   
   match "about" => "page#about"
