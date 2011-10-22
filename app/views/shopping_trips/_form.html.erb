@@ -11,9 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :integer %><br />
-    <%= f.text_field :integer %>
+  <div style="float:left; padding-left: 10px">
+    <h2>Food Items</h2>
+    <% f.fields_for :food_items do |builder| %>
+        <%= render 'food_item_fields', :f => builder %>
+    <% end %>
+
+    <p><%= link_to_add_fields "Add Item", f, :food_items %></p>
   </div>
   <div class="actions">
     <%= f.submit %>

@@ -25,6 +25,11 @@ class ShoppingTripsController < ApplicationController
   # GET /shopping_trips/new.json
   def new
     @shopping_trip = ShoppingTrip.new
+    @foods = [];
+    Food.all.each do |food|
+      @foods << "#{food.measure} of #{food.name}"
+    end
+    
 
     respond_to do |format|
       format.html # new.html.erb
