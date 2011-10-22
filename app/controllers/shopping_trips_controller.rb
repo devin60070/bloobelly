@@ -61,13 +61,14 @@ class ShoppingTripsController < ApplicationController
     #  @shopping_trip.food_items.create(:food_id => item[1], :number => item[2])
     #end
     
-    @shopping_trip = ShoppingTrip.create()
+    @shopping_trip = ShoppingTrip.new({:user_id=>current_user.id},:total=>1230)
    
     respond_to do |format|
       if @shopping_trip.save
+	totalusage=0
 	params[:shopping_trip][:food_items_attributes].each do |item|
 	  item=item[1]
-	  FoodItem.create(:food_id => item['id'], :number => item['number'],:shopping_trip_id=>@shopping_trip_id)
+	  FoodItem.create(:food_id => item['id'], :number => item['number'],:shopping_trip_id=>@shopping_trip.id)
 	end
         format.html { redirect_to @shopping_trip, notice: 'Shopping trip was successfully created.' }
         format.json { render json: @shopping_trip, status: :created, location: @shopping_trip }
