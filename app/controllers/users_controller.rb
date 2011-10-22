@@ -19,6 +19,6 @@ class UsersController < ApplicationController
       format.html # show.html.erb
       format.json { render json: @shopping_trip }
     end
-  end
+  
   end
 end
