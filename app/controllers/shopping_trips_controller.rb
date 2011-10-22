@@ -25,9 +25,11 @@ class ShoppingTripsController < ApplicationController
   # GET /shopping_trips/new.json
   def new
     @shopping_trip = ShoppingTrip.new
-    @foods = [];
+    @food_names = {}
+    @foods = []
     Food.all.each do |food|
-      @foods << "#{food.measure} of #{food.name}"
+      @food_names["#{food.name}"] = food.id
+      @foods << food
     end
     
 
@@ -45,7 +47,17 @@ class ShoppingTripsController < ApplicationController
   # POST /shopping_trips
   # POST /shopping_trips.json
   def create
-    @shopping_trip = ShoppingTrip.new(params[:shopping_trip])
+   # p = {"utf8"=>"✓", "authenticity_token"=>"jIcGQitXLtNukZjxCh11VITNOtZ09Xn5o31zRPMcuVw=",
+   #    "shopping_trip"=>{"food_items_attributes"=>{"1319287074347"=>{"food"=>"rice - Small Bag", "number"=>"9"}}},
+   #     "commit"=>"Create Shopping trip"}
+   # 
+   #@shopping_trip = ShoppingTrip.create()
+   
+   @shopping_trip = ShoppingTrip.create(params[:shopping_trip])
+    #params[:shopping_trip][:food_items_attributes].each do |item|
+    #  @shopping_trip.food_items.create(:food_id => item[1], :number => item[2])
+    #end
+    #@shopping_trip = ShoppingTrip.new(params[:shopping_trip])
 
     respond_to do |format|
       if @shopping_trip.save

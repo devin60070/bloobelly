@@ -1,11 +1,14 @@
 <div>
 
-  <%= f.label :food, 'Food Name' %>
-  
-  <br/>
-  <%= f.select :food, @foods %> 
-  <%= f.label :number, ' Quantity --->' %>
-  <%= f.text_field :number %>
+  	  <%= f.label :id, 'Food Name' %>
+	  <br/>
+	  <%= f.select :id, @food_names %> 
+	  <%= f.label :number, ' Quantity --->' %>
+	  <%= f.text_field :number %>
+	
  
+
+
+	
   <p><%# link_to_remove_fields 'remove', f %></p>
 </div>
