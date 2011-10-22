@@ -70,6 +70,11 @@ class ShoppingTripsController < ApplicationController
 	  item=item[1]
 	  FoodItem.create(:food_id => item['id'], :number => item['number'],:shopping_trip_id=>@shopping_trip.id)
 	end
+	total=0
+	@shopping_trip.food_items.each do |fooditem|
+	  total=total + fooditem.food.water_usage.to_i*fooditem.number.to_i
+	end
+	ShoppingTrip.update(@shopping_trip.id,:total=>total)
         format.html { redirect_to @shopping_trip, notice: 'Shopping trip was successfully created.' }
         format.json { render json: @shopping_trip, status: :created, location: @shopping_trip }
       else
