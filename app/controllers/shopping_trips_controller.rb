@@ -53,11 +53,12 @@ class ShoppingTripsController < ApplicationController
    # 
    #@shopping_trip = ShoppingTrip.create()
    
-   @shopping_trip = ShoppingTrip.create(params[:shopping_trip])
+   #@shopping_trip = ShoppingTrip.create()
+   #@shopping_trip.food_items.create(params[:shopping_trip][:food_items_attributes])
     #params[:shopping_trip][:food_items_attributes].each do |item|
     #  @shopping_trip.food_items.create(:food_id => item[1], :number => item[2])
     #end
-    #@shopping_trip = ShoppingTrip.new(params[:shopping_trip])
+    @shopping_trip = ShoppingTrip.new(params[:shopping_trip])
 
     respond_to do |format|
       if @shopping_trip.save
