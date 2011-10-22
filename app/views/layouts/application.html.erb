@@ -9,7 +9,9 @@
 <body>
 <div data-role = "page" data-theme = "b">
 <div data-role = "header" data-theme = "b">  
-<h2>
+<%= image_tag "lizard.png", :height=>"28px", :alt=>"bloo belly",:class=>"ui-btn-left", :style=>"-moz-border-radius: 5px;border-radius: 5px"%>
+<h1>Bloo Belly</h2>
+<p class="ui-btn-right">
 <% if current_user %>
   Logged in as <%= current_user.email %>.
   <%= link_to "Log out", logout_path %>
@@ -17,7 +19,7 @@
   <%= link_to "Sign up", signup_path %> or
   <%= link_to "log in", login_path %>.
 <% end %>
-</h2>
+</p>
 </div>
 <%= yield %>
 <div data-role = "footer" data-theme = "b" data-position="fixed">
