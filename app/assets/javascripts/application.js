@@ -8,3 +8,19 @@
 //= require jquery_ujs
 //= require jquery_mobile
 //= require_tree .
+/*
+Removes the div with class 'fields' directly above the link
+ */
+function remove_fields(link) {
+  $(link).prev("input[type=hidden]").val("1");
+  $(link).closest(".fields").hide();
+}
+/*
+Adds the provided HTML directly above the link
+ */
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $(link).parent().before(content.replace(regexp, new_id));
+}
+

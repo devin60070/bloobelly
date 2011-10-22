@@ -1,7 +1,9 @@
 Bloobelly::Application.routes.draw do
-  resources :shopping_trips
+  resources :shopping_trips do
+    resources :food_items
+  end
 
-  resources :food_items
+  
 
   match "oauth/callback" => "oauths#callback"
   

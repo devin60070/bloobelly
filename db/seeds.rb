@@ -6,3 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+Food.create(
+    :name => 'rice',
+    :water_usage=> '600',
+    :measure => 'Small Bag'
+
+)    
+Food.create(
+    :name => 'carrot',
+    :water_usage=> '35',
+    :measure => 'Dozen'
+)

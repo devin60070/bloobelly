@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Integer</th>
-    <th>Integer</th>
+    <th>Name</th>
+    <th>Water Usage</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @food_items.each do |food_item| %>
   <tr>
-    <td><%= food_item.integer %></td>
-    <td><%= food_item.integer %></td>
+    <td><%= food_item.name %></td>
+    <td><%= food_item.water_usage %></td>
     <td><%= link_to 'Show', food_item %></td>
     <td><%= link_to 'Edit', edit_food_item_path(food_item) %></td>
     <td><%= link_to 'Destroy', food_item, confirm: 'Are you sure?', method: :delete %></td>

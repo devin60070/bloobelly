@@ -5,5 +5,6 @@ class User < ActiveRecord::Base
   end
   validates_confirmation_of :password
   has_many :authentications, :dependent => :destroy
+  has_many :shopping_trips
   accepts_nested_attributes_for :authentications
 end
