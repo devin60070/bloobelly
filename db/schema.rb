@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(:version => 20111022131306) do
     t.integer  "number"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "Shopping_trip_id"
+    t.integer  "shopping_trip_id"
   end
 
   create_table "foods", :force => true do |t|

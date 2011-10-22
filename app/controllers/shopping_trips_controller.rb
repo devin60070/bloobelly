@@ -25,6 +25,9 @@ class ShoppingTripsController < ApplicationController
   # GET /shopping_trips/new.json
   def new
     @shopping_trip = ShoppingTrip.new
+    1.times do
+      question = @shopping_trip.food_items.build
+    end
     @food_names = {}
     @foods = []
     Food.all.each do |food|
@@ -52,16 +55,20 @@ class ShoppingTripsController < ApplicationController
    #     "commit"=>"Create Shopping trip"}
    # 
    #@shopping_trip = ShoppingTrip.create()
-   
    #@shopping_trip = ShoppingTrip.create()
    #@shopping_trip.food_items.create(params[:shopping_trip][:food_items_attributes])
     #params[:shopping_trip][:food_items_attributes].each do |item|
     #  @shopping_trip.food_items.create(:food_id => item[1], :number => item[2])
     #end
-    @shopping_trip = ShoppingTrip.new(params[:shopping_trip])
-
+    
+    @shopping_trip = ShoppingTrip.create()
+   
     respond_to do |format|
       if @shopping_trip.save
+	params[:shopping_trip][:food_items_attributes].each do |item|
+	  item=item[1]
+	  FoodItem.create(:food_id => item['id'], :number => item['number'],:shopping_trip_id=>@shopping_trip_id)
+	end
         format.html { redirect_to @shopping_trip, notice: 'Shopping trip was successfully created.' }
         format.json { render json: @shopping_trip, status: :created, location: @shopping_trip }
       else

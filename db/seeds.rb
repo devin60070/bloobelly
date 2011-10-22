@@ -33,14 +33,14 @@ ShoppingTrip.create(
 FoodItem.create(
     :food_id => 1,
     :number =>2,
-    :Shopping_trip_id =>1
+    :shopping_trip_id =>1
 
 )    
 
 FoodItem.create(
     :food_id => 2,
     :number =>1,
-    :Shopping_trip_id =>1
+    :shopping_trip_id =>1
 
 )    
 
