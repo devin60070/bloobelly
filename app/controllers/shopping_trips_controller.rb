@@ -27,7 +27,7 @@ class ShoppingTripsController < ApplicationController
     @shopping_trip = ShoppingTrip.new
     @foods = [];
     Food.all.each do |food|
-      @foods << food.name
+      @foods << "#{food.measure} of #{food.name}"
     end
     
 
