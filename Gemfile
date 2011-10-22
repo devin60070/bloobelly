@@ -17,7 +17,10 @@ group :development do
   gem 'sqlite3'
 end
 
-#gem 'pg'
+group :production do
+  gem 'pg'
+end
+
 gem 'sorcery', '0.6.1'
 gem 'jquery-rails'
 gem "jquery_mobile-rails"
