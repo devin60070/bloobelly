@@ -13,7 +13,8 @@ class UsersController < ApplicationController
   end
   
   def show
-    @user=User.find(params[:id)
+    @user=User.find(params[:id])
+    @shopping_trips=@user.shopping_trips
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @shopping_trip }
